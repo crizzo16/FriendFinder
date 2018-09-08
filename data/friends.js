@@ -1,8 +1,8 @@
 let friends = [
     {
-        name: "Jester Lavore",
-        picURL: "https://vignette.wikia.nocookie.net/criticalrole/images/1/1b/Jester.jpg/revision/latest?cb=20180116194420",
-        scores: [1, 3, 5, 2, 4, 3, 3, 2, 1, 4]
+        name: "Peter Parker",
+        picURL: "https://amp.businessinsider.com/images/5b687505959f3432008b4bb3-750-563.jpg",
+        scores: [4, 1, 4, 2, 2, 2, 5, 4, 2, 2]
     }
 ];
 
