@@ -4,20 +4,21 @@
 <head>
     <meta charset="utf-8" />
     <title>FriendFinder</title>
-    <!-- CSS -->
+    <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css?family=Boogaloo|Montserrat" rel="stylesheet">
-    <!-- Latest compiled and minified CSS & JS -->
+    <!-- Latest compiled and minified CSS & JS  for Bootstrap -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://code.jquery.com/jquery.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <!-- My stylesheets -->
     <link rel="stylesheet" type="text/css" href="/CSS/reset.css">
     <link rel="stylesheet" type="text/css" href="/CSS/style.css">
-
     <link rel="shortcut icon" href="/Images/favicon.ico?v=2" type="image/x-icon">
 </head>
 
 <body>
+    <!-- Modal copied from Bootstrap documentation -->
     <div class="modal fade" id="friendModal" tabindex="-1" role="dialog" aria-labelledby="friendModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -28,9 +29,9 @@
                     </button>
                 </div>
                 <div class="modal-body">
+                    <!-- This is what gets replaced once a friend has been found-->
                     <h3 id="friendName"></h3><br>
-                    <img class="modal-img" alt="closest friend image" id="friendImg"><br>
-                    <h6 id="imgurl"></h6>
+                    <img class="modal-img" alt="closest friend image" id="friendImg">
                 </div>
             </div>
         </div>
@@ -43,6 +44,7 @@
     </div>
 
     <div class="container">
+        <!-- Survey form -->
         <form class="form-flex">
             <div class="card form-group wide-form">
                 <div class="card-header">
@@ -217,47 +219,56 @@
 
 
 
-
+    <!-- Javascript for properly submitting the data -->
     <script type="text/javascript">
-
+        // Submitting the form
         $(".submit").on("click", function (event) {
+            // Stop the form from going to a new page
             event.preventDefault();
 
+            // Format the data
             let person = {
                 name: $("#name").val().trim(),
                 picURL: $("#picURL").val().trim(),
                 scores: [parseInt($("#a").val()), parseInt($("#b").val()), parseInt($("#c").val()), parseInt($("#d").val()), parseInt($("#e").val()), parseInt($("#f").val()), parseInt($("#g").val()), parseInt($("#h").val()), parseInt($("#i").val()), parseInt($("#j").val())]
             };
 
-            console.log(person);
+            // Console log the data to make sure it's format correctly
+            // console.log(person);
 
+            // Post the data to the server
             $.post("/api/friends", person, function (data) {
-                console.log("data");
-                console.log(data);
-                
-
+                // Get the entire friends array
                 $.ajax({ url: "/api/friends", method: "GET" }).then(function (friendz) {
-                    console.log(friendz);
-                    console.log("******************************");
+                    // Check to make sure all friends have been grabbed (only do this for small arrays)
+                    //console.log(friendz);
+                    //console.log("******************************");
 
-                    let score = 100;
-                    let index = 0;
+                    // Initialize checks to find closest friend
+                    let score = 100; // It's not possible to have a score of 100, so the first option will definitely be smaller
+                    let index = 0; // At the very least, you'll have one friend
 
+                    // Loop through the friends to find the **BEST** friend
                     for (let m = 0; m < (friendz.length - 1); m++) {
+                        // The score for this specific friend 
                         let compare = 0;
+                        // Loop through this friend's scores
                         for (let x = 0; x < friendz[m].scores.length; x++) {
                             compare += Math.abs(person.scores[x] - friendz[m].scores[x]);
                         }
-
+                        // If this score is lower (i.e. closer) go with that person
                         if (compare < score) {
                             score = compare;
                             index = m;
                         }
                     }
-                    console.log("friend: " + friendz[index].name);
+                    // Log the closet friend ( debugging purposes)
+                    // console.log("friend: " + friendz[index].name);
+
+                    // Set the modal fields
                     $("#friendName").text(friendz[index].name);
                     $("#friendImg").attr("src", friendz[index].picURL);
-                    $("#imgurl").text
+                    // Show the modal
                     $('#friendModal').modal('show');
 
                     // Reset form
@@ -274,12 +285,8 @@
                     $("#i").selectedIndex = 0;
                     $("#j").selectedIndex = 0;
                 });
-
-
             });
         });
-
-
     </script>
 </body>
 

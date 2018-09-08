@@ -1,6 +1,6 @@
 body {
     font-family: 'Montserrat', sans-serif;
-    background: url("../Images/bananas.png");
+    background: url("../Images/bananas.png"); /* I've been waiting to use this background for an age*/
 }
 
 .jumbotron {
@@ -59,22 +59,6 @@ p {
 .wide-form {
     width: 80%;
 }
-
-/* .select-style {
-    background: #BCEAE3;
-}
-
-.select-style:active {
-    background: #BCEAE3;
-}
-
-.select-style:hover {
-    background: #BCEAE3;
-}
-
-.select-style:after {
-    background: magenta;
-} */
 
 .btn-wide {
     margin-left: 300px;

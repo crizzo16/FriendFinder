@@ -1,3 +1,5 @@
+// Allllll of the friends!
+// Data started with just Peter Parker
 let friends = [
     {
         name: "Peter Parker",
@@ -6,4 +8,5 @@ let friends = [
     }
 ];
 
+// Export the array
 module.exports = friends;
