@@ -1,0 +1,82 @@
+body {
+    font-family: 'Montserrat', sans-serif;
+    background: url("../Images/bananas.png");
+}
+
+.jumbotron {
+    margin: 20px auto 0;
+    text-align: center;
+    width: 70%;
+    padding: 40px;
+    background: #F4DEA8;
+}
+
+a {
+    text-decoration: none !important;
+}
+
+p {
+    font-size: 28px;
+}
+
+#title {
+    font-family: 'Boogaloo', cursive;
+    font-size: 100px;
+}
+
+.btn-blue {
+    background: #BCEAE3;
+    border: 3px solid #43767A;
+    color: black;
+}
+
+.btn-blue:hover {
+    background: #43767A;
+    color: white;
+}
+
+.container {
+    margin: 0 auto 30px;
+}
+
+.form-flex {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.card {
+    margin: 0 auto 20px;
+    background: #F4DEA8;
+    width: 40%;
+    min-width: 300px;
+}
+
+.card-header {
+    background: #C5B6A9;
+}
+
+.wide-form {
+    width: 80%;
+}
+
+/* .select-style {
+    background: #BCEAE3;
+}
+
+.select-style:active {
+    background: #BCEAE3;
+}
+
+.select-style:hover {
+    background: #BCEAE3;
+}
+
+.select-style:after {
+    background: magenta;
+} */
+
+.btn-wide {
+    margin-left: 300px;
+    margin-right: 300px;
+}

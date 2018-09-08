@@ -1,0 +1,284 @@
+<!DOCTYPE <!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>FriendFinder</title>
+    <!-- CSS -->
+    <link href="https://fonts.googleapis.com/css?family=Boogaloo|Montserrat" rel="stylesheet">
+    <!-- Latest compiled and minified CSS & JS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://code.jquery.com/jquery.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="/CSS/reset.css">
+    <link rel="stylesheet" type="text/css" href="/CSS/style.css">
+</head>
+
+<body>
+    <div class="modal fade" id="friendModal" tabindex="-1" role="dialog" aria-labelledby="friendModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="bestMatch">Best Match</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <h3 id="friendName"></h3><br>
+                    <img class="modal-img" alt="closest friend image" id="friendImg"><br>
+                    <h6 id="imgurl"></h6>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="jumbotron mb-4">
+        <h1 class="display-4" id="title">FriendFinder</h1>
+        <hr class="my-4">
+        <p class="mt-4 mb-4" id="tagline">Survey Questions</p>
+    </div>
+
+    <div class="container">
+        <form class="form-flex">
+            <div class="card form-group wide-form">
+                <div class="card-header">
+                    <h2>About You</h2>
+                </div>
+                <div class="card-body">
+                    <div class="form-group">
+                        <label for="name">Name</label>d
+                        <input type="text" id="name" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="picURL">URL of Picture</label>
+                        <input type="text" id="picURL" class="form-control">
+                    </div>
+                </div>
+            </div>
+
+            <div class="card form-group">
+                <div class="card-header">
+                    <h3>I enjoy spending time in a group.</h3>
+                </div>
+                <div class="card-body">
+                    <select id="a" class="select-style form-control">
+                        <option value=1>1 (Strongly Disagree)</option>
+                        <option value=2>2</option>
+                        <option value=3>3</option>
+                        <option value=4>4</option>
+                        <option value=5>5 (Strongly Agree)</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <h3>I share easily with my friends.</h3>
+                </div>
+                <div class="card-body">
+                    <select id="b" class="select-style form-control">
+                        <option value=1>1 (Strongly Disagree)</option>
+                        <option value=2>2</option>
+                        <option value=3>3</option>
+                        <option value=4>4</option>
+                        <option value=5>5 (Strongly Agree)</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <h3>I prefer to work alone.</h3>
+                </div>
+                <div class="card-body">
+                    <select id="c" class="select-style form-control">
+                        <option value=1>1 (Strongly Disagree)</option>
+                        <option value=2>2</option>
+                        <option value=3>3</option>
+                        <option value=4>4</option>
+                        <option value=5>5 (Strongly Agree)</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <h3>I prefer action over words.</h3>
+                </div>
+                <div class="card-body">
+                    <select id="d" class="select-style form-control">
+                        <option value=1>1 (Strongly Disagree)</option>
+                        <option value=2>2</option>
+                        <option value=3>3</option>
+                        <option value=4>4</option>
+                        <option value=5>5 (Strongly Agree)</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <h3>I </h3>
+                </div>
+                <div class="card-body">
+                    <select id="e" class="select-style form-control">
+                        <option value=1>1 (Strongly Disagree)</option>
+                        <option value=2>2</option>
+                        <option value=3>3</option>
+                        <option value=4>4</option>
+                        <option value=5>5 (Strongly Agree)</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <h3>Do you like chocolate?</h3>
+                </div>
+                <div class="card-body">
+                    <select id="f" class="select-style form-control">
+                        <option value=1>1 (Strongly Disagree)</option>
+                        <option value=2>2</option>
+                        <option value=3>3</option>
+                        <option value=4>4</option>
+                        <option value=5>5 (Strongly Agree)</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <h3>Do you like chocolate?</h3>
+                </div>
+                <div class="card-body">
+                    <select id="g" class="select-style form-control">
+                        <option value=1>1 (Strongly Disagree)</option>
+                        <option value=2>2</option>
+                        <option value=3>3</option>
+                        <option value=4>4</option>
+                        <option value=5>5 (Strongly Agree)</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <h3>Do you like chocolate?</h3>
+                </div>
+                <div class="card-body">
+                    <select id="h" class="select-style form-control">
+                        <option value=1>1 (Strongly Disagree)</option>
+                        <option value=2>2</option>
+                        <option value=3>3</option>
+                        <option value=4>4</option>
+                        <option value=5>5 (Strongly Agree)</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <h3>Do you like chocolate?</h3>
+                </div>
+                <div class="card-body">
+                    <select id="i" class="select-style form-control">
+                        <option value=1>1 (Strongly Disagree)</option>
+                        <option value=2>2</option>
+                        <option value=3>3</option>
+                        <option value=4>4</option>
+                        <option value=5>5 (Strongly Agree)</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <h3>Do you like chocolate?</h3>
+                </div>
+                <div class="card-body">
+                    <select id="j" class="select-style form-control">
+                        <option value=1>1 (Strongly Disagree)</option>
+                        <option value=2>2</option>
+                        <option value=3>3</option>
+                        <option value=4>4</option>
+                        <option value=5>5 (Strongly Agree)</option>
+                    </select>
+                </div>
+            </div>
+
+            <button class="btn btn-blue btn-lg btn-wide submit">Submit</button>
+        </form>
+    </div>
+
+
+
+
+
+    <script type="text/javascript">
+
+        $(".submit").on("click", function (event) {
+            event.preventDefault();
+
+            let person = {
+                name: $("#name").val().trim(),
+                picURL: $("#picURL").val().trim(),
+                scores: [parseInt($("#a").val()), parseInt($("#b").val()), parseInt($("#c").val()), parseInt($("#d").val()), parseInt($("#e").val()), parseInt($("#f").val()), parseInt($("#g").val()), parseInt($("#h").val()), parseInt($("#i").val()), parseInt($("#j").val())]
+            };
+
+            console.log(person);
+
+            $.post("/api/friends", person, function (data) {
+                console.log("data");
+                console.log(data);
+                
+
+                $.ajax({ url: "/api/friends", method: "GET" }).then(function (friendz) {
+                    console.log(friendz);
+                    console.log("******************************");
+
+                    let score = 100;
+                    let index = 0;
+
+                    for (let m = 0; m < (friendz.length - 1); m++) {
+                        let compare = 0;
+                        for (let x = 0; x < friendz[m].scores.length; x++) {
+                            compare += Math.abs(person.scores[x] - friendz[m].scores[x]);
+                        }
+
+                        if (compare < score) {
+                            score = compare;
+                            index = m;
+                        }
+                    }
+                    console.log("friend: " + friendz[index].name);
+                    $("#friendName").text(friendz[index].name);
+                    $("#friendImg").attr("src", friendz[index].picURL);
+                    $("#imgurl").text
+                    $('#friendModal').modal('show');
+
+                    // Reset form
+                    $("#name").val("");
+                    $("#picURL").val("");
+                    $("#a").selectedIndex = 0;
+                    $("#b").selectedIndex = 0;
+                    $("#c").selectedIndex = 0;
+                    $("#d").selectedIndex = 0;
+                    $("#e").selectedIndex = 0;
+                    $("#f").selectedIndex = 0;
+                    $("#g").selectedIndex = 0;
+                    $("#h").selectedIndex = 0;
+                    $("#i").selectedIndex = 0;
+                    $("#j").selectedIndex = 0;
+                });
+
+
+            });
+        });
+
+
+    </script>
+</body>
+
+</html>
